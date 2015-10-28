@@ -731,6 +731,15 @@
 <span id="689">689</span>
 <span id="690">690</span>
 <span id="691">691</span>
+<span id="692">692</span>
+<span id="693">693</span>
+<span id="694">694</span>
+<span id="695">695</span>
+<span id="696">696</span>
+<span id="697">697</span>
+<span id="698">698</span>
+<span id="699">699</span>
+<span id="700">700</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ops</span>::{
     <span class='ident'>Index</span>,
@@ -744,6 +753,7 @@
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>io</span>::{<span class='ident'>AsRawFd</span>, <span class='ident'>RawFd</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>sync</span>::<span class='ident'>atomic</span>::{<span class='ident'>AtomicBool</span>, <span class='ident'>Ordering</span>, <span class='ident'>ATOMIC_BOOL_INIT</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>collections</span>::<span class='ident'>VecDeque</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>thread</span>;
 
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>signal</span>;
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>signal</span>::{<span class='ident'>SockFlag</span>, <span class='ident'>SigSet</span>};
@@ -762,6 +772,7 @@
 };
 <span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>termctl</span>::<span class='ident'>TermCtl</span>;
 <span class='kw'>use</span> <span class='ident'>util</span>::<span class='ident'>errors</span>::<span class='ident'>Error</span>;
+<span class='kw'>use</span> <span class='ident'>gag</span>::<span class='ident'>BufferRedirect</span>;
 
 <span class='doccomment'>/// Set to true by the sigwinch handler. Reset to false when buffers are resized.</span>
 <span class='kw'>static</span> <span class='ident'>SIGWINCH_STATUS</span>: <span class='ident'>AtomicBool</span> <span class='op'>=</span> <span class='ident'>ATOMIC_BOOL_INIT</span>;
@@ -812,6 +823,7 @@
     <span class='ident'>eventbuffer</span>: <span class='ident'>EventBuffer</span>, <span class='comment'>// Event buffer.</span>
     <span class='ident'>laststyle</span>: <span class='ident'>Cell</span>, <span class='comment'>// Last cell to have its style (fg, bg, attrs) written to the output buffer.</span>
     <span class='ident'>cursor</span>: <span class='ident'>Cursor</span>, <span class='comment'>// Current cursor position.</span>
+    <span class='ident'>stderr_handle</span>: <span class='ident'>BufferRedirect</span>
 }
 
 <span class='kw'>impl</span> <span class='ident'>Terminal</span> {
@@ -904,6 +916,7 @@
             <span class='ident'>eventbuffer</span>: <span class='ident'>EventBuffer</span>::<span class='ident'>with_capacity</span>(<span class='number'>128</span>),
             <span class='ident'>laststyle</span>: <span class='ident'>cell</span>,
             <span class='ident'>cursor</span>: <span class='ident'>Cursor</span>::<span class='ident'>new</span>(),
+            <span class='ident'>stderr_handle</span>: <span class='ident'>BufferRedirect</span>::<span class='ident'>stderr</span>().<span class='ident'>unwrap</span>()
         };
 
         <span class='comment'>// Switch to alternate screen buffer. Writes the control code to the output buffer.</span>
@@ -1346,6 +1359,11 @@
     <span class='kw'>fn</span> <span class='ident'>flush</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(), <span class='ident'>Error</span><span class='op'>&gt;</span> {
         <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>tty</span>.<span class='ident'>write_all</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>outbuffer</span>));
         <span class='self'>self</span>.<span class='ident'>outbuffer</span>.<span class='ident'>clear</span>();
+        <span class='kw'>if</span> <span class='ident'>thread</span>::<span class='ident'>panicking</span>() {
+            <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>error</span> <span class='op'>=</span> <span class='ident'>String</span>::<span class='ident'>new</span>();
+            <span class='self'>self</span>.<span class='ident'>stderr_handle</span>.<span class='ident'>read_to_string</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>error</span>).<span class='ident'>unwrap</span>();
+            <span class='macro'>print</span><span class='macro'>!</span>(<span class='string'>&quot;{}&quot;</span>, <span class='ident'>error</span>);
+        }
         <span class='prelude-val'>Ok</span>(())
     }
 }
