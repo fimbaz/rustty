@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='../index.html'>rustty</a>::<wbr><a href='index.html'>ui</a></p><script>window.sidebarCurrent = {name: 'Painter', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -47,16 +47,16 @@
             </a>
         </span><a id='src-5876' class='srclink' href='../../src/rustty/ui/painter.rs.html#10-112' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Painter: <a class='trait' href='../../rustty/trait.CellAccessor.html' title='rustty::CellAccessor'>CellAccessor</a> {
-    fn <a href='#method.printline_with_cell' class='fnname'>printline_with_cell</a>(&amp;mut self, x: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, line: &amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, cell: <a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>) { ... }
-    fn <a href='#method.printline' class='fnname'>printline</a>(&amp;mut self, x: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, line: &amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) { ... }
-    fn <a href='#method.halign_line' class='fnname'>halign_line</a>(&amp;self, line: &amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, margin: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
-    fn <a href='#method.valign_line' class='fnname'>valign_line</a>(&amp;self, line: &amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
-    fn <a href='#method.repeat_cell' class='fnname'>repeat_cell</a>(&amp;mut self, x: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, orientation: Orientation, count: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, cell: <a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>) { ... }
+    fn <a href='#method.printline_with_cell' class='fnname'>printline_with_cell</a>(&amp;mut self, x: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, line: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, cell: <a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>) { ... }
+    fn <a href='#method.printline' class='fnname'>printline</a>(&amp;mut self, x: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, line: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) { ... }
+    fn <a href='#method.halign_line' class='fnname'>halign_line</a>(&amp;self, line: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, margin: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.valign_line' class='fnname'>valign_line</a>(&amp;self, line: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.repeat_cell' class='fnname'>repeat_cell</a>(&amp;mut self, x: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, orientation: Orientation, count: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, cell: <a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>) { ... }
     fn <a href='#method.draw_box' class='fnname'>draw_box</a>(&amp;mut self) { ... }
 }</pre>
             <h2 id='provided-methods'>Provided Methods</h2>
             <div class='methods'>
-        <h3 id='method.printline_with_cell' class='method stab '><code>fn <a href='#method.printline_with_cell' class='fnname'>printline_with_cell</a>(&amp;mut self, x: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, line: &amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, cell: <a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>)</code></h3><div class='docblock'><p>Prints a string at the specified position.</p>
+        <h3 id='method.printline_with_cell' class='method stab '><code>fn <a href='#method.printline_with_cell' class='fnname'>printline_with_cell</a>(&amp;mut self, x: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, line: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, cell: <a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>)</code></h3><div class='docblock'><p>Prints a string at the specified position.</p>
 
 <p>This is a shorthand for setting each cell individually. <code>cell</code>&#39;s style is going to be
 copied to each destination cell.</p>
@@ -69,20 +69,20 @@ copied to each destination cell.</p>
 <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>term</span> <span class='op'>=</span> <span class='ident'>Terminal</span>::<span class='ident'>new</span>().<span class='ident'>unwrap</span>();
 <span class='kw'>let</span> <span class='ident'>cell</span> <span class='op'>=</span> <span class='ident'>Cell</span>::<span class='ident'>with_style</span>(<span class='ident'>Color</span>::<span class='ident'>Default</span>, <span class='ident'>Color</span>::<span class='ident'>Red</span>, <span class='ident'>Attr</span>::<span class='ident'>Default</span>);
 <span class='ident'>term</span>.<span class='ident'>printline_with_cell</span>(<span class='number'>0</span>, <span class='number'>0</span>, <span class='string'>&quot;foobar&quot;</span>, <span class='ident'>cell</span>);</pre>
-</div><h3 id='method.printline' class='method stab '><code>fn <a href='#method.printline' class='fnname'>printline</a>(&amp;mut self, x: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, line: &amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</code></h3><div class='docblock'><p>Prints a string at the specified position.</p>
+</div><h3 id='method.printline' class='method stab '><code>fn <a href='#method.printline' class='fnname'>printline</a>(&amp;mut self, x: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, line: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</code></h3><div class='docblock'><p>Prints a string at the specified position.</p>
 
 <p>Shorthand for <code>printline_with_cell(x, y, line, Cell::default())</code>.</p>
-</div><h3 id='method.halign_line' class='method stab '><code>fn <a href='#method.halign_line' class='fnname'>halign_line</a>(&amp;self, line: &amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, margin: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Returns the proper x coord to align <code>line</code> in the specified <code>halign</code> alignment.</p>
+</div><h3 id='method.halign_line' class='method stab '><code>fn <a href='#method.halign_line' class='fnname'>halign_line</a>(&amp;self, line: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, margin: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Returns the proper x coord to align <code>line</code> in the specified <code>halign</code> alignment.</p>
 
 <p><code>margin</code> is the number of characters we want to leave near the borders.</p>
-</div><h3 id='method.valign_line' class='method stab '><code>fn <a href='#method.valign_line' class='fnname'>valign_line</a>(&amp;self, line: &amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Returns the proper y coord to align <code>line</code> in the specified <code>valign</code> alignment.</p>
+</div><h3 id='method.valign_line' class='method stab '><code>fn <a href='#method.valign_line' class='fnname'>valign_line</a>(&amp;self, line: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Returns the proper y coord to align <code>line</code> in the specified <code>valign</code> alignment.</p>
 
 <p><code>margin</code> is the number of characters we want to leave near the borders.</p>
 
 <p>For now, the contents of line has no incidence whatsoever on the result, but when we
 support multi-line strings, it will, so we might as well stay consistent with
 <code>halign_line()</code>.</p>
-</div><h3 id='method.repeat_cell' class='method stab '><code>fn <a href='#method.repeat_cell' class='fnname'>repeat_cell</a>(&amp;mut self, x: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, orientation: Orientation, count: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, cell: <a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>)</code></h3><h3 id='method.draw_box' class='method stab '><code>fn <a href='#method.draw_box' class='fnname'>draw_box</a>(&amp;mut self)</code></h3></div>
+</div><h3 id='method.repeat_cell' class='method stab '><code>fn <a href='#method.repeat_cell' class='fnname'>repeat_cell</a>(&amp;mut self, x: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, orientation: Orientation, count: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, cell: <a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>)</code></h3><h3 id='method.draw_box' class='method stab '><code>fn <a href='#method.draw_box' class='fnname'>draw_box</a>(&amp;mut self)</code></h3></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
     </ul><script type="text/javascript" async
@@ -92,10 +92,12 @@ support multi-line strings, it will, so we might as well stay consistent with
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -112,7 +114,7 @@ support multi-line strings, it will, so we might as well stay consistent with
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -122,8 +124,8 @@ support multi-line strings, it will, so we might as well stay consistent with
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>typedef</code> (or
-                    <code>tdef</code>).
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
                 </p>
 
                 <p>
@@ -132,7 +134,7 @@ support multi-line strings, it will, so we might as well stay consistent with
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 

@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='../../index.html'>nix</a>::<wbr><a href='../index.html'>sys</a>::<wbr><a href='index.html'>signal</a></p><script>window.sidebarCurrent = {name: 'pthread_sigmask', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -46,7 +46,7 @@
                 [<span class='inner'>&#x2212;</span>]
             </a>
         </span><a id='src-23228' class='srclink' href='../../../src/nix/sys/signal.rs.html#490-511' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn pthread_sigmask(how: <a class='struct' href='../../../nix/sys/signal/signal/struct.HowFlag.html' title='nix::sys::signal::signal::HowFlag'>HowFlag</a>, set: <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../../nix/sys/signal/struct.SigSet.html' title='nix::sys::signal::SigSet'>SigSet</a>&gt;, oldset: <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;mut <a class='struct' href='../../../nix/sys/signal/struct.SigSet.html' title='nix::sys::signal::SigSet'>SigSet</a>&gt;) -&gt; <a class='type' href='../../../nix/type.Result.html' title='nix::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</pre><div class='docblock'><p>Manages the signal mask (set of blocked signals) for the calling thread.</p>
+<pre class='rust fn'>pub fn pthread_sigmask(how: <a class='struct' href='../../../nix/sys/signal/signal/struct.HowFlag.html' title='nix::sys::signal::signal::HowFlag'>HowFlag</a>, set: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../../nix/sys/signal/struct.SigSet.html' title='nix::sys::signal::SigSet'>SigSet</a>&gt;, oldset: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;mut <a class='struct' href='../../../nix/sys/signal/struct.SigSet.html' title='nix::sys::signal::SigSet'>SigSet</a>&gt;) -&gt; <a class='type' href='../../../nix/type.Result.html' title='nix::Result'>Result</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</pre><div class='docblock'><p>Manages the signal mask (set of blocked signals) for the calling thread.</p>
 
 <p>If the <code>set</code> parameter is <code>Some(..)</code>, then the signal mask will be updated with the signal set.
 The <code>how</code> flag decides the type of update. If <code>set</code> is <code>None</code>, <code>how</code> will be ignored,
@@ -66,10 +66,12 @@ or <a href="http://man7.org/linux/man-pages/man2/sigprocmask.2.html">sigprocmask
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -86,7 +88,7 @@ or <a href="http://man7.org/linux/man-pages/man2/sigprocmask.2.html">sigprocmask
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -96,8 +98,8 @@ or <a href="http://man7.org/linux/man-pages/man2/sigprocmask.2.html">sigprocmask
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>typedef</code> (or
-                    <code>tdef</code>).
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
                 </p>
 
                 <p>
@@ -106,7 +108,7 @@ or <a href="http://man7.org/linux/man-pages/man2/sigprocmask.2.html">sigprocmask
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 

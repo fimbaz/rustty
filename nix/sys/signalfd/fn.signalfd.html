@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='../../index.html'>nix</a>::<wbr><a href='../index.html'>sys</a>::<wbr><a href='index.html'>signalfd</a></p><script>window.sidebarCurrent = {name: 'signalfd', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -46,7 +46,7 @@
                 [<span class='inner'>&#x2212;</span>]
             </a>
         </span><a id='src-24326' class='srclink' href='../../../src/nix/sys/signalfd.rs.html#57-64' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn signalfd(fd: <a class='type' href='http://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>RawFd</a>, mask: &amp;<a class='struct' href='../../../nix/sys/signal/struct.SigSet.html' title='nix::sys::signal::SigSet'>SigSet</a>, flags: <a class='struct' href='../../../nix/sys/signalfd/struct.SfdFlags.html' title='nix::sys::signalfd::SfdFlags'>SfdFlags</a>) -&gt; <a class='type' href='../../../nix/type.Result.html' title='nix::Result'>Result</a>&lt;<a class='type' href='http://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>RawFd</a>&gt;</pre><div class='docblock'><p>Creates a new file descriptor for reading signals.</p>
+<pre class='rust fn'>pub fn signalfd(fd: <a class='type' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>RawFd</a>, mask: &amp;<a class='struct' href='../../../nix/sys/signal/struct.SigSet.html' title='nix::sys::signal::SigSet'>SigSet</a>, flags: <a class='struct' href='../../../nix/sys/signalfd/struct.SfdFlags.html' title='nix::sys::signalfd::SfdFlags'>SfdFlags</a>) -&gt; <a class='type' href='../../../nix/type.Result.html' title='nix::Result'>Result</a>&lt;<a class='type' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>RawFd</a>&gt;</pre><div class='docblock'><p>Creates a new file descriptor for reading signals.</p>
 
 <p><strong>Important:</strong> please read the module level documentation about signal discarding before using
 this function!</p>
@@ -62,10 +62,12 @@ signalfd (the default handler will be invoked instead).</p>
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -82,7 +84,7 @@ signalfd (the default handler will be invoked instead).</p>
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -92,8 +94,8 @@ signalfd (the default handler will be invoked instead).</p>
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>typedef</code> (or
-                    <code>tdef</code>).
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
                 </p>
 
                 <p>
@@ -102,7 +104,7 @@ signalfd (the default handler will be invoked instead).</p>
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 

@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='../../index.html'>nix</a>::<wbr><a href='../index.html'>sys</a>::<wbr><a href='index.html'>signalfd</a></p><script>window.sidebarCurrent = {name: 'siginfo', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -47,22 +47,22 @@
             </a>
         </span><a id='src-24650' class='srclink' href='../../../src/nix/sys/signalfd.rs.html#155-172' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct siginfo {
-    pub ssi_signo: <a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
-    pub ssi_errno: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,
-    pub ssi_code: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,
-    pub ssi_pid: <a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
-    pub ssi_uid: <a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
-    pub ssi_fd: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,
-    pub ssi_tid: <a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
-    pub ssi_band: <a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
-    pub ssi_overrun: <a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
-    pub ssi_trapno: <a href='http://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
-    pub ssi_status: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,
-    pub ssi_int: <a href='http://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,
-    pub ssi_ptr: <a href='http://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
-    pub ssi_utime: <a href='http://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
-    pub ssi_stime: <a href='http://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
-    pub ssi_addr: <a href='http://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
+    pub ssi_signo: <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
+    pub ssi_errno: <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,
+    pub ssi_code: <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,
+    pub ssi_pid: <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
+    pub ssi_uid: <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
+    pub ssi_fd: <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,
+    pub ssi_tid: <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
+    pub ssi_band: <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
+    pub ssi_overrun: <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
+    pub ssi_trapno: <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,
+    pub ssi_status: <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,
+    pub ssi_int: <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,
+    pub ssi_ptr: <a href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
+    pub ssi_utime: <a href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
+    pub ssi_stime: <a href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
+    pub ssi_addr: <a href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
 }</pre><h2 class='fields'>Fields</h2>
 <table><tr class='stab '>
                                   <td id='structfield.ssi_signo'><code>ssi_signo</code></td><td></td></tr><tr class='stab '>
@@ -80,21 +80,23 @@
                                   <td id='structfield.ssi_ptr'><code>ssi_ptr</code></td><td></td></tr><tr class='stab '>
                                   <td id='structfield.ssi_utime'><code>ssi_utime</code></td><td></td></tr><tr class='stab '>
                                   <td id='structfield.ssi_stime'><code>ssi_stime</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ssi_addr'><code>ssi_addr</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='struct' href='../../../nix/sys/signal/signal/struct.siginfo.html' title='nix::sys::signal::signal::siginfo'>signal_siginfo</a>&gt; for <a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a></code></h3><div class='impl-items'><h4 id='method.into' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/convert/trait.Into.html#method.into' class='fnname'>into</a>(self) -&gt; <a class='struct' href='../../../nix/sys/signal/signal/struct.siginfo.html' title='nix::sys::signal::signal::siginfo'>signal_siginfo</a></code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-<h4 id='method.ne' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+                                  <td id='structfield.ssi_addr'><code>ssi_addr</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='struct' href='../../../nix/sys/signal/signal/struct.siginfo.html' title='nix::sys::signal::signal::siginfo'>signal_siginfo</a>&gt; for <a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a></code></h3><div class='impl-items'><h4 id='method.into' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#method.into' class='fnname'>into</a>(self) -&gt; <a class='struct' href='../../../nix/sys/signal/signal/struct.siginfo.html' title='nix::sys::signal::signal::siginfo'>signal_siginfo</a></code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a></code></h4>
+<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../../nix/sys/signalfd/struct.siginfo.html' title='nix::sys::signalfd::siginfo'>siginfo</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -111,7 +113,7 @@
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -121,8 +123,8 @@
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>typedef</code> (or
-                    <code>tdef</code>).
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
                 </p>
 
                 <p>
@@ -131,7 +133,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 

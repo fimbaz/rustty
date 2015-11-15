@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='index.html'>gag</a></p><script>window.sidebarCurrent = {name: 'Hold', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -51,20 +51,22 @@
 }</pre><div class='docblock'><p>Hold output until dropped. On drop, the held output is sent to the stdout/stderr.</p>
 
 <p>Note: This will ignore IO errors when printing held output.</p>
-</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../gag/struct.Hold.html' title='gag::Hold'>Hold</a></code></h3><div class='impl-items'><h4 id='method.stderr' class='method'><code>fn <a href='#method.stderr' class='fnname'>stderr</a>() -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='struct' href='../gag/struct.Hold.html' title='gag::Hold'>Hold</a>&gt;</code></h4>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../gag/struct.Hold.html' title='gag::Hold'>Hold</a></code></h3><div class='impl-items'><h4 id='method.stderr' class='method'><code>fn <a href='#method.stderr' class='fnname'>stderr</a>() -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='struct' href='../gag/struct.Hold.html' title='gag::Hold'>Hold</a>&gt;</code></h4>
 <div class='docblock'><p>Hold stderr output.</p>
-</div><h4 id='method.stdout' class='method'><code>fn <a href='#method.stdout' class='fnname'>stdout</a>() -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='struct' href='../gag/struct.Hold.html' title='gag::Hold'>Hold</a>&gt;</code></h4>
+</div><h4 id='method.stdout' class='method'><code>fn <a href='#method.stdout' class='fnname'>stdout</a>() -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='struct' href='../gag/struct.Hold.html' title='gag::Hold'>Hold</a>&gt;</code></h4>
 <div class='docblock'><p>Hold stdout output.</p>
-</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../gag/struct.Hold.html' title='gag::Hold'>Hold</a></code></h3><div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#method.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../gag/struct.Hold.html' title='gag::Hold'>Hold</a></code></h3><div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#method.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -81,7 +83,7 @@
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -91,8 +93,8 @@
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>typedef</code> (or
-                    <code>tdef</code>).
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
                 </p>
 
                 <p>
@@ -101,7 +103,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 

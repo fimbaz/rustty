@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='index.html'>rustty</a></p><script>window.sidebarCurrent = {name: 'Cell', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -51,7 +51,7 @@
 }</pre><div class='docblock'><p>A single point on a terminal display.</p>
 
 <p>A <code>Cell</code> contains a character and style.</p>
-</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(ch: <a href='http://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a>, fg: <a class='enum' href='../rustty/enum.Color.html' title='rustty::Color'>Color</a>, bg: <a class='enum' href='../rustty/enum.Color.html' title='rustty::Color'>Color</a>, attrs: <a class='enum' href='../rustty/enum.Attr.html' title='rustty::Attr'>Attr</a>) -&gt; <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h4>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(ch: <a href='https://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a>, fg: <a class='enum' href='../rustty/enum.Color.html' title='rustty::Color'>Color</a>, bg: <a class='enum' href='../rustty/enum.Color.html' title='rustty::Color'>Color</a>, attrs: <a class='enum' href='../rustty/enum.Attr.html' title='rustty::Attr'>Attr</a>) -&gt; <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h4>
 <div class='docblock'><p>Creates a new <code>Cell</code> with the given <code>char</code>, <code>Color</code>s and <code>Attr</code>.</p>
 
 <h1 id="examples" class='section-header'><a
@@ -63,7 +63,7 @@
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>cell</span>.<span class='ident'>fg</span>(), <span class='ident'>Color</span>::<span class='ident'>Default</span>);
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>cell</span>.<span class='ident'>bg</span>(), <span class='ident'>Color</span>::<span class='ident'>Green</span>);
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>cell</span>.<span class='ident'>attrs</span>(), <span class='ident'>Attr</span>::<span class='ident'>Default</span>);</pre>
-</div><h4 id='method.with_char' class='method'><code>fn <a href='#method.with_char' class='fnname'>with_char</a>(ch: <a href='http://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a>) -&gt; <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h4>
+</div><h4 id='method.with_char' class='method'><code>fn <a href='#method.with_char' class='fnname'>with_char</a>(ch: <a href='https://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a>) -&gt; <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h4>
 <div class='docblock'><p>Creates a new <code>Cell</code> with the given <code>char</code> and default style.</p>
 
 <h1 id="examples" class='section-header'><a
@@ -87,7 +87,7 @@
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>cell</span>.<span class='ident'>bg</span>(), <span class='ident'>Color</span>::<span class='ident'>Red</span>);
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>cell</span>.<span class='ident'>attrs</span>(), <span class='ident'>Attr</span>::<span class='ident'>Bold</span>);
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>cell</span>.<span class='ident'>ch</span>(), <span class='string'>&#39; &#39;</span>);</pre>
-</div><h4 id='method.ch' class='method'><code>fn <a href='#method.ch' class='fnname'>ch</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a></code></h4>
+</div><h4 id='method.ch' class='method'><code>fn <a href='#method.ch' class='fnname'>ch</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a></code></h4>
 <div class='docblock'><p>Returns the <code>Cell</code>&#39;s character.</p>
 
 <h1 id="examples" class='section-header'><a
@@ -96,7 +96,7 @@
 
 <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>cell</span> <span class='op'>=</span> <span class='ident'>Cell</span>::<span class='ident'>with_char</span>(<span class='string'>&#39;x&#39;</span>);
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>cell</span>.<span class='ident'>ch</span>(), <span class='string'>&#39;x&#39;</span>);</pre>
-</div><h4 id='method.set_ch' class='method'><code>fn <a href='#method.set_ch' class='fnname'>set_ch</a>(&amp;mut self, newch: <a href='http://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a>) -&gt; &amp;mut <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h4>
+</div><h4 id='method.set_ch' class='method'><code>fn <a href='#method.set_ch' class='fnname'>set_ch</a>(&amp;mut self, newch: <a href='https://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a>) -&gt; &amp;mut <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h4>
 <div class='docblock'><p>Sets the <code>Cell</code>&#39;s character to the given <code>char</code></p>
 
 <h1 id="examples" class='section-header'><a
@@ -152,21 +152,23 @@
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>cell</span>.<span class='ident'>bg</span>(), <span class='ident'>Color</span>::<span class='ident'>Black</span>);</pre>
 </div><h4 id='method.attrs' class='method'><code>fn <a href='#method.attrs' class='fnname'>attrs</a>(&amp;self) -&gt; <a class='enum' href='../rustty/enum.Attr.html' title='rustty::Attr'>Attr</a></code></h4>
 <h4 id='method.set_attrs' class='method'><code>fn <a href='#method.set_attrs' class='fnname'>set_attrs</a>(&amp;mut self, newattrs: <a class='enum' href='../rustty/enum.Attr.html' title='rustty::Attr'>Attr</a>) -&gt; &amp;mut <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h4>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/default/trait.Default.html#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-<h4 id='method.ne' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h4>
+<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -183,7 +185,7 @@
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -193,8 +195,8 @@
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>typedef</code> (or
-                    <code>tdef</code>).
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
                 </p>
 
                 <p>
@@ -203,7 +205,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 

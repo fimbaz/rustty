@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='../index.html'>rustty</a>::<wbr><a href='index.html'>ui</a></p><script>window.sidebarCurrent = {name: 'Widget', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -48,29 +48,31 @@
         </span><a id='src-6715' class='srclink' href='../../src/rustty/ui/widget.rs.html#5-9' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Widget {
     // some fields omitted
-}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(cols: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, rows: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h4>
+}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(cols: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, rows: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h4>
 <h4 id='method.draw_into' class='method'><code>fn <a href='#method.draw_into' class='fnname'>draw_into</a>(&amp;self, cells: &amp;mut <a class='trait' href='../../rustty/trait.CellAccessor.html' title='rustty::CellAccessor'>CellAccessor</a>)</code></h4>
 </div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a> for <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h3><div class='impl-items'><h4 id='method.size' class='method'><code>fn <a href='../../rustty/trait.HasSize.html#method.size' class='fnname'>size</a>(&amp;self) -&gt; <a class='type' href='../../rustty/type.Size.html' title='rustty::Size'>Size</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='../../rustty/trait.CellAccessor.html' title='rustty::CellAccessor'>CellAccessor</a> for <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h3><div class='impl-items'><h4 id='method.cellvec' class='method'><code>fn <a href='../../rustty/trait.CellAccessor.html#method.cellvec' class='fnname'>cellvec</a>(&amp;self) -&gt; &amp;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>&gt;</code></h4>
-<h4 id='method.cellvec_mut' class='method'><code>fn <a href='../../rustty/trait.CellAccessor.html#method.cellvec_mut' class='fnname'>cellvec_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>&gt;</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='../../rustty/trait.CellAccessor.html' title='rustty::CellAccessor'>CellAccessor</a> for <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h3><div class='impl-items'><h4 id='method.cellvec' class='method'><code>fn <a href='../../rustty/trait.CellAccessor.html#method.cellvec' class='fnname'>cellvec</a>(&amp;self) -&gt; &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>&gt;</code></h4>
+<h4 id='method.cellvec_mut' class='method'><code>fn <a href='../../rustty/trait.CellAccessor.html#method.cellvec_mut' class='fnname'>cellvec_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>&gt;</code></h4>
 <h4 id='method.clear' class='method'><code>fn <a href='../../rustty/trait.CellAccessor.html#method.clear' class='fnname'>clear</a>(&amp;mut self, blank: <a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>)</code></h4>
-<h4 id='method.pos_to_index' class='method'><code>fn <a href='../../rustty/trait.CellAccessor.html#method.pos_to_index' class='fnname'>pos_to_index</a>(&amp;self, x: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code></h4>
-<h4 id='method.get' class='method'><code>fn <a href='../../rustty/trait.CellAccessor.html#method.get' class='fnname'>get</a>(&amp;self, x: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>&gt;</code></h4>
-<h4 id='method.get_mut' class='method'><code>fn <a href='../../rustty/trait.CellAccessor.html#method.get_mut' class='fnname'>get_mut</a>(&amp;mut self, x: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;mut <a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>&gt;</code></h4>
+<h4 id='method.pos_to_index' class='method'><code>fn <a href='../../rustty/trait.CellAccessor.html#method.pos_to_index' class='fnname'>pos_to_index</a>(&amp;self, x: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code></h4>
+<h4 id='method.get' class='method'><code>fn <a href='../../rustty/trait.CellAccessor.html#method.get' class='fnname'>get</a>(&amp;self, x: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>&gt;</code></h4>
+<h4 id='method.get_mut' class='method'><code>fn <a href='../../rustty/trait.CellAccessor.html#method.get_mut' class='fnname'>get_mut</a>(&amp;mut self, x: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, y: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;mut <a class='struct' href='../../rustty/struct.Cell.html' title='rustty::Cell'>Cell</a>&gt;</code></h4>
 </div><h3 class='impl'><code>impl <a class='trait' href='../../rustty/trait.HasPosition.html' title='rustty::HasPosition'>HasPosition</a> for <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h3><div class='impl-items'><h4 id='method.origin' class='method'><code>fn <a href='../../rustty/trait.HasPosition.html#method.origin' class='fnname'>origin</a>(&amp;self) -&gt; <a class='type' href='../../rustty/type.Pos.html' title='rustty::Pos'>Pos</a></code></h4>
 <h4 id='method.set_origin' class='method'><code>fn <a href='../../rustty/trait.HasPosition.html#method.set_origin' class='fnname'>set_origin</a>(&amp;mut self, new_origin: <a class='type' href='../../rustty/type.Pos.html' title='rustty::Pos'>Pos</a>)</code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='../../rustty/ui/trait.Alignable.html' title='rustty::ui::Alignable'>Alignable</a> for <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h3><div class='impl-items'><h4 id='method.halign' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.halign' class='fnname'>halign</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, margin: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
-<h4 id='method.valign' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.valign' class='fnname'>valign</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
-<h4 id='method.align' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.align' class='fnname'>align</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='../../rustty/ui/trait.Alignable.html' title='rustty::ui::Alignable'>Alignable</a> for <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h3><div class='impl-items'><h4 id='method.halign' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.halign' class='fnname'>halign</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, margin: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
+<h4 id='method.valign' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.valign' class='fnname'>valign</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
+<h4 id='method.align' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.align' class='fnname'>align</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -87,7 +89,7 @@
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -97,8 +99,8 @@
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>typedef</code> (or
-                    <code>tdef</code>).
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
                 </p>
 
                 <p>
@@ -107,7 +109,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 
