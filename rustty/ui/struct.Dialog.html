@@ -9,7 +9,9 @@
 
     <title>rustty::ui::Dialog - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
@@ -42,17 +44,17 @@
 
     <section id='main' class="content struct">
 <h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>rustty</a>::<wbr><a href='index.html'>ui</a>::<wbr><a class='struct' href=''>Dialog</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-7159' class='srclink' href='../../src/rustty/ui/dialog.rs.html#14-18' title='goto source code'>[src]</a></span></h1>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1075' class='srclink' href='../../src/rustty/src/ui/dialog.rs.html#14-18' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Dialog {
     // some fields omitted
-}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../rustty/ui/struct.Dialog.html' title='rustty::ui::Dialog'>Dialog</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(cols: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, rows: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../../rustty/ui/struct.Dialog.html' title='rustty::ui::Dialog'>Dialog</a></code></h4>
+}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../rustty/ui/struct.Dialog.html' title='rustty::ui::Dialog'>Dialog</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(cols: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, rows: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../../rustty/ui/struct.Dialog.html' title='rustty::ui::Dialog'>Dialog</a></code></h4>
 <h4 id='method.window' class='method'><code>fn <a href='#method.window' class='fnname'>window</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h4>
 <h4 id='method.window_mut' class='method'><code>fn <a href='#method.window_mut' class='fnname'>window_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h4>
-<h4 id='method.add_button' class='method'><code>fn <a href='#method.add_button' class='fnname'>add_button</a>(&amp;mut self, text: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, accel: <a href='https://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a>, result: <a class='enum' href='../../rustty/ui/enum.DialogResult.html' title='rustty::ui::DialogResult'>DialogResult</a>) -&gt; &amp;mut <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h4>
-<h4 id='method.result_for_key' class='method'><code>fn <a href='#method.result_for_key' class='fnname'>result_for_key</a>(&amp;self, key: <a href='https://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../rustty/ui/enum.DialogResult.html' title='rustty::ui::DialogResult'>DialogResult</a>&gt;</code></h4>
+<h4 id='method.add_button' class='method'><code>fn <a href='#method.add_button' class='fnname'>add_button</a>(&amp;mut self, text: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, accel: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a>, result: <a class='enum' href='../../rustty/ui/enum.DialogResult.html' title='rustty::ui::DialogResult'>DialogResult</a>) -&gt; &amp;mut <a class='struct' href='../../rustty/ui/struct.Widget.html' title='rustty::ui::Widget'>Widget</a></code></h4>
+<h4 id='method.result_for_key' class='method'><code>fn <a href='#method.result_for_key' class='fnname'>result_for_key</a>(&amp;self, key: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../rustty/ui/enum.DialogResult.html' title='rustty::ui::DialogResult'>DialogResult</a>&gt;</code></h4>
 <h4 id='method.draw_buttons' class='method'><code>fn <a href='#method.draw_buttons' class='fnname'>draw_buttons</a>(&amp;mut self)</code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
@@ -97,7 +99,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -113,6 +115,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

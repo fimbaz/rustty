@@ -9,7 +9,9 @@
 
     <title>rustty::ui::HorizontalLayout - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
@@ -42,20 +44,20 @@
 
     <section id='main' class="content struct">
 <h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>rustty</a>::<wbr><a href='index.html'>ui</a>::<wbr><a class='struct' href=''>HorizontalLayout</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-6518' class='srclink' href='../../src/rustty/ui/layout.rs.html#46-51' title='goto source code'>[src]</a></span></h1>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-951' class='srclink' href='../../src/rustty/src/ui/layout.rs.html#46-51' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct HorizontalLayout&lt;'a&gt; {
     // some fields omitted
-}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl&lt;'a&gt; <a class='struct' href='../../rustty/ui/struct.HorizontalLayout.html' title='rustty::ui::HorizontalLayout'>HorizontalLayout</a>&lt;'a&gt;</code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(elems: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;&amp;mut <a class='trait' href='../../rustty/ui/trait.Alignable.html' title='rustty::ui::Alignable'>Alignable</a>&gt;, inner_margin: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../../rustty/ui/struct.HorizontalLayout.html' title='rustty::ui::HorizontalLayout'>HorizontalLayout</a></code></h4>
+}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl&lt;'a&gt; <a class='struct' href='../../rustty/ui/struct.HorizontalLayout.html' title='rustty::ui::HorizontalLayout'>HorizontalLayout</a>&lt;'a&gt;</code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(elems: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;&amp;mut <a class='trait' href='../../rustty/ui/trait.Alignable.html' title='rustty::ui::Alignable'>Alignable</a>&gt;, inner_margin: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../../rustty/ui/struct.HorizontalLayout.html' title='rustty::ui::HorizontalLayout'>HorizontalLayout</a></code></h4>
 <h4 id='method.align_elems' class='method'><code>fn <a href='#method.align_elems' class='fnname'>align_elems</a>(&amp;mut self)</code></h4>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a> for <a class='struct' href='../../rustty/ui/struct.HorizontalLayout.html' title='rustty::ui::HorizontalLayout'>HorizontalLayout</a>&lt;'a&gt;</code></h3><div class='impl-items'><h4 id='method.size' class='method'><code>fn <a href='../../rustty/trait.HasSize.html#method.size' class='fnname'>size</a>(&amp;self) -&gt; <a class='type' href='../../rustty/type.Size.html' title='rustty::Size'>Size</a></code></h4>
-</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='../../rustty/trait.HasPosition.html' title='rustty::HasPosition'>HasPosition</a> for <a class='struct' href='../../rustty/ui/struct.HorizontalLayout.html' title='rustty::ui::HorizontalLayout'>HorizontalLayout</a>&lt;'a&gt;</code></h3><div class='impl-items'><h4 id='method.origin' class='method'><code>fn <a href='../../rustty/trait.HasPosition.html#method.origin' class='fnname'>origin</a>(&amp;self) -&gt; <a class='type' href='../../rustty/type.Pos.html' title='rustty::Pos'>Pos</a></code></h4>
-<h4 id='method.set_origin' class='method'><code>fn <a href='../../rustty/trait.HasPosition.html#method.set_origin' class='fnname'>set_origin</a>(&amp;mut self, new_origin: <a class='type' href='../../rustty/type.Pos.html' title='rustty::Pos'>Pos</a>)</code></h4>
-</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='../../rustty/ui/trait.Alignable.html' title='rustty::ui::Alignable'>Alignable</a> for <a class='struct' href='../../rustty/ui/struct.HorizontalLayout.html' title='rustty::ui::HorizontalLayout'>HorizontalLayout</a>&lt;'a&gt;</code></h3><div class='impl-items'><h4 id='method.halign' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.halign' class='fnname'>halign</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, margin: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
-<h4 id='method.valign' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.valign' class='fnname'>valign</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
-<h4 id='method.align' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.align' class='fnname'>align</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a> for <a class='struct' href='../../rustty/ui/struct.HorizontalLayout.html' title='rustty::ui::HorizontalLayout'>HorizontalLayout</a>&lt;'a&gt;</code></h3><div class='impl-items'><h4 id='method.size' class='method'><code>fn <a href='../../rustty/trait.HasSize.html#tymethod.size' class='fnname'>size</a>(&amp;self) -&gt; <a class='type' href='../../rustty/type.Size.html' title='rustty::Size'>Size</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='../../rustty/trait.HasPosition.html' title='rustty::HasPosition'>HasPosition</a> for <a class='struct' href='../../rustty/ui/struct.HorizontalLayout.html' title='rustty::ui::HorizontalLayout'>HorizontalLayout</a>&lt;'a&gt;</code></h3><div class='impl-items'><h4 id='method.origin' class='method'><code>fn <a href='../../rustty/trait.HasPosition.html#tymethod.origin' class='fnname'>origin</a>(&amp;self) -&gt; <a class='type' href='../../rustty/type.Pos.html' title='rustty::Pos'>Pos</a></code></h4>
+<h4 id='method.set_origin' class='method'><code>fn <a href='../../rustty/trait.HasPosition.html#tymethod.set_origin' class='fnname'>set_origin</a>(&amp;mut self, new_origin: <a class='type' href='../../rustty/type.Pos.html' title='rustty::Pos'>Pos</a>)</code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='../../rustty/ui/trait.Alignable.html' title='rustty::ui::Alignable'>Alignable</a> for <a class='struct' href='../../rustty/ui/struct.HorizontalLayout.html' title='rustty::ui::HorizontalLayout'>HorizontalLayout</a>&lt;'a&gt;</code></h3><div class='impl-items'><h4 id='method.halign' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.halign' class='fnname'>halign</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, margin: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
+<h4 id='method.valign' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.valign' class='fnname'>valign</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
+<h4 id='method.align' class='method'><code>fn <a href='../../rustty/ui/trait.Alignable.html#method.align' class='fnname'>align</a>(&amp;mut self, parent: &amp;<a class='trait' href='../../rustty/trait.HasSize.html' title='rustty::HasSize'>HasSize</a>, halign: <a class='enum' href='../../rustty/ui/enum.HorizontalAlign.html' title='rustty::ui::HorizontalAlign'>HorizontalAlign</a>, valign: <a class='enum' href='../../rustty/ui/enum.VerticalAlign.html' title='rustty::ui::VerticalAlign'>VerticalAlign</a>, margin: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
@@ -99,7 +101,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -115,6 +117,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

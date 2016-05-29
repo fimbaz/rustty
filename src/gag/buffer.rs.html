@@ -4,12 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-0a35038f75765ae4/gag-0.1.6/src/buffer.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-88ac128001ac3a9a/gag-0.1.9/src/buffer.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>buffer.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
@@ -101,19 +103,20 @@
 <span id="59">59</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::{<span class='self'>self</span>, <span class='ident'>Read</span>};
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>fs</span>::<span class='ident'>File</span>;
 
 <span class='kw'>use</span> <span class='ident'>redirect</span>::<span class='ident'>Redirect</span>;
-<span class='kw'>use</span> <span class='ident'>tempfile</span>::<span class='ident'>TempFile</span>;
+<span class='kw'>use</span> <span class='ident'>tempfile</span>::<span class='ident'>NamedTempFile</span>;
 
 <span class='doccomment'>/// Buffer output in an in-memory buffer.</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>BufferRedirect</span> {
     <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>dead_code</span>)]</span>
-    <span class='ident'>redir</span>: <span class='ident'>Redirect</span><span class='op'>&lt;</span><span class='ident'>TempFile</span><span class='op'>&gt;</span>,
-    <span class='ident'>outer</span>: <span class='ident'>TempFile</span>,
+    <span class='ident'>redir</span>: <span class='ident'>Redirect</span><span class='op'>&lt;</span><span class='ident'>File</span><span class='op'>&gt;</span>,
+    <span class='ident'>outer</span>: <span class='ident'>File</span>,
 }
 
 <span class='doccomment'>/// An in-memory read-only buffer into which BufferRedirect buffers output.</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Buffer</span>(<span class='ident'>TempFile</span>);
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Buffer</span>(<span class='ident'>File</span>);
 
 <span class='kw'>impl</span> <span class='ident'>Read</span> <span class='kw'>for</span> <span class='ident'>Buffer</span> {
     <span class='attribute'>#[<span class='ident'>inline</span>(<span class='ident'>always</span>)]</span>
@@ -125,24 +128,24 @@
 <span class='kw'>impl</span> <span class='ident'>BufferRedirect</span> {
     <span class='doccomment'>/// Buffer stdout.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>stdout</span>() <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>BufferRedirect</span><span class='op'>&gt;</span> {
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>iter</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>TempFile</span>::<span class='ident'>shared</span>(<span class='number'>2</span>)).<span class='ident'>into_iter</span>();
-        <span class='kw'>let</span> <span class='ident'>inner</span> <span class='op'>=</span> <span class='ident'>iter</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>();
-        <span class='kw'>let</span> <span class='ident'>outer</span> <span class='op'>=</span> <span class='ident'>iter</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>();
+        <span class='kw'>let</span> <span class='ident'>tempfile</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>NamedTempFile</span>::<span class='ident'>new</span>());
+        <span class='kw'>let</span> <span class='ident'>inner</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>tempfile</span>.<span class='ident'>reopen</span>());
+        <span class='kw'>let</span> <span class='ident'>outer</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>tempfile</span>.<span class='ident'>reopen</span>());
         <span class='kw'>let</span> <span class='ident'>redir</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>Redirect</span>::<span class='ident'>stdout</span>(<span class='ident'>inner</span>));
         <span class='prelude-val'>Ok</span>(<span class='ident'>BufferRedirect</span> {
             <span class='ident'>redir</span>: <span class='ident'>redir</span>,
-            <span class='ident'>outer</span>: <span class='ident'>outer</span>
+            <span class='ident'>outer</span>: <span class='ident'>outer</span>,
         })
     }
     <span class='doccomment'>/// Buffer stderr.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>stderr</span>() <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>BufferRedirect</span><span class='op'>&gt;</span> {
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>iter</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>TempFile</span>::<span class='ident'>shared</span>(<span class='number'>2</span>)).<span class='ident'>into_iter</span>();
-        <span class='kw'>let</span> <span class='ident'>inner</span> <span class='op'>=</span> <span class='ident'>iter</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>();
-        <span class='kw'>let</span> <span class='ident'>outer</span> <span class='op'>=</span> <span class='ident'>iter</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>();
+        <span class='kw'>let</span> <span class='ident'>tempfile</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>NamedTempFile</span>::<span class='ident'>new</span>());
+        <span class='kw'>let</span> <span class='ident'>inner</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>tempfile</span>.<span class='ident'>reopen</span>());
+        <span class='kw'>let</span> <span class='ident'>outer</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>tempfile</span>.<span class='ident'>reopen</span>());
         <span class='kw'>let</span> <span class='ident'>redir</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>Redirect</span>::<span class='ident'>stderr</span>(<span class='ident'>inner</span>));
         <span class='prelude-val'>Ok</span>(<span class='ident'>BufferRedirect</span> {
             <span class='ident'>redir</span>: <span class='ident'>redir</span>,
-            <span class='ident'>outer</span>: <span class='ident'>outer</span>
+            <span class='ident'>outer</span>: <span class='ident'>outer</span>,
         })
     }
 
@@ -158,7 +161,6 @@
         <span class='self'>self</span>.<span class='ident'>outer</span>.<span class='ident'>read</span>(<span class='ident'>buf</span>)
     }
 }
-
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -203,7 +205,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -219,6 +221,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>
