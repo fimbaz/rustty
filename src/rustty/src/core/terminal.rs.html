@@ -730,6 +730,13 @@
 <span id="686">686</span>
 <span id="687">687</span>
 <span id="688">688</span>
+<span id="689">689</span>
+<span id="690">690</span>
+<span id="691">691</span>
+<span id="692">692</span>
+<span id="693">693</span>
+<span id="694">694</span>
+<span id="695">695</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ops</span>::{<span class='ident'>Index</span>, <span class='ident'>IndexMut</span>, <span class='ident'>Deref</span>, <span class='ident'>DerefMut</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::<span class='ident'>prelude</span>::<span class='op'>*</span>;
@@ -740,6 +747,7 @@
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>sync</span>::<span class='ident'>atomic</span>::{<span class='ident'>AtomicBool</span>, <span class='ident'>Ordering</span>, <span class='ident'>ATOMIC_BOOL_INIT</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>collections</span>::<span class='ident'>VecDeque</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>thread</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>time</span>::<span class='ident'>Duration</span>;
 
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>signal</span>;
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>signal</span>::{<span class='ident'>SigHandler</span>, <span class='ident'>SigAction</span>, <span class='ident'>SaFlag</span>, <span class='ident'>SigSet</span>};
@@ -748,6 +756,8 @@
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>select</span>::<span class='ident'>FdSet</span>;
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>time</span>::<span class='ident'>TimeVal</span>;
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>errno</span>::<span class='ident'>Errno</span>;
+
+<span class='kw'>use</span> <span class='ident'>libc</span>;
 
 <span class='kw'>use</span> <span class='ident'>gag</span>::<span class='ident'>BufferRedirect</span>;
 
@@ -1171,10 +1181,10 @@
         <span class='prelude-val'>Ok</span>(())
     }
 
-    <span class='doccomment'>/// Gets an event from the event stream, waiting a maximum of `timeout_ms` milliseconds.</span>
+    <span class='doccomment'>/// Gets an event from the event stream, waiting at most the value specified in `timeout`.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Specifying a `timeout_ms` of -1 causes `get_event()` to block indefinitely, while</span>
-    <span class='doccomment'>/// specifying a `timeout_ms` of 0 causes `get_event()` to return immediately.</span>
+    <span class='doccomment'>/// Specifying a `timeout` of `None` causes `get_event()` to block indefinitely, while</span>
+    <span class='doccomment'>/// specifying a `timeout` of zero causes `get_event()` to return immediately.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Returns `Some(Event)` if an event was received within the specified timeout, or None</span>
     <span class='doccomment'>/// otherwise.</span>
@@ -1184,16 +1194,17 @@
     <span class='doccomment'>/// ```no_run</span>
     <span class='doccomment'>/// # use std::thread::sleep_ms;</span>
     <span class='doccomment'>/// use rustty::{Terminal, Event};</span>
+    <span class='doccomment'>/// use std::time::Duration;</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// let mut term = Terminal::new().unwrap();</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// let evt = term.get_event(1).unwrap();</span>
+    <span class='doccomment'>/// let evt = term.get_event(Duration::from_secs(1)).unwrap();</span>
     <span class='doccomment'>/// ```</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_event</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>timeout_ms</span>: <span class='ident'>i64</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Event</span><span class='op'>&gt;</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_event</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>timeout</span>: <span class='ident'>Duration</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Event</span><span class='op'>&gt;</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
         <span class='comment'>// Check if the event buffer is empty.</span>
         <span class='kw'>if</span> <span class='self'>self</span>.<span class='ident'>eventbuffer</span>.<span class='ident'>is_empty</span>() {
             <span class='comment'>// Event buffer is empty, lets poll the terminal for events.</span>
-            <span class='kw'>let</span> <span class='ident'>nevts</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>read_events</span>(<span class='ident'>timeout_ms</span>));
+            <span class='kw'>let</span> <span class='ident'>nevts</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>read_events</span>(<span class='ident'>timeout</span>));
             <span class='kw'>if</span> <span class='ident'>nevts</span> <span class='op'>==</span> <span class='number'>0</span> {
                 <span class='comment'>// No events from the terminal either. Return none.</span>
                 <span class='prelude-val'>Ok</span>(<span class='prelude-val'>None</span>)
@@ -1285,12 +1296,15 @@
     }
 
     <span class='doccomment'>/// Attempts to read any available events from the terminal into the event buffer, waiting for</span>
-    <span class='doccomment'>/// the specified number of milliseconds for input to become available.</span>
+    <span class='doccomment'>/// the specified timeout for input to become available.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Returns the number of events read into the buffer.</span>
-    <span class='kw'>fn</span> <span class='ident'>read_events</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>timeout_ms</span>: <span class='ident'>i64</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>usize</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
+    <span class='kw'>fn</span> <span class='ident'>read_events</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>timeout</span>: <span class='ident'>Duration</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>usize</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
         <span class='kw'>let</span> <span class='ident'>nevts</span>;
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>timeout</span> <span class='op'>=</span> <span class='ident'>TimeVal</span>::<span class='ident'>milliseconds</span>(<span class='ident'>timeout_ms</span>);
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>timeout</span> <span class='op'>=</span> <span class='ident'>TimeVal</span> {
+            <span class='ident'>tv_sec</span>: <span class='ident'>timeout</span>.<span class='ident'>as_secs</span>() <span class='kw'>as</span> <span class='ident'>libc</span>::<span class='ident'>time_t</span>,
+            <span class='ident'>tv_usec</span>: <span class='ident'>timeout</span>.<span class='ident'>subsec_nanos</span>() <span class='kw'>as</span> <span class='ident'>libc</span>::<span class='ident'>suseconds_t</span>,
+        };
         <span class='kw'>let</span> <span class='ident'>rawfd</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>tty</span>.<span class='ident'>as_raw_fd</span>();
         <span class='kw'>let</span> <span class='ident'>nfds</span> <span class='op'>=</span> <span class='ident'>rawfd</span> <span class='op'>+</span> <span class='number'>1</span>;
 
