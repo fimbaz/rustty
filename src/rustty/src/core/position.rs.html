@@ -93,6 +93,10 @@
 <span id="49">49</span>
 <span id="50">50</span>
 <span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
 </pre><pre class='rust '>
 <span class='doccomment'>/// A `(x, y)` position on screen.</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>Pos</span> <span class='op'>=</span> (<span class='ident'>usize</span>, <span class='ident'>usize</span>);
@@ -125,11 +129,15 @@
     <span class='doccomment'>/// Checks whether the current and last coordinates are sequential and returns `true` if they</span>
     <span class='doccomment'>/// are and `false` otherwise.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>is_seq</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
-        <span class='kw'>if</span> <span class='kw'>let</span> <span class='prelude-val'>Some</span>((<span class='ident'>cx</span>, <span class='ident'>cy</span>)) <span class='op'>=</span>  <span class='self'>self</span>.<span class='ident'>pos</span> {
+        <span class='kw'>if</span> <span class='kw'>let</span> <span class='prelude-val'>Some</span>((<span class='ident'>cx</span>, <span class='ident'>cy</span>)) <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>pos</span> {
             <span class='kw'>if</span> <span class='kw'>let</span> <span class='prelude-val'>Some</span>((<span class='ident'>lx</span>, <span class='ident'>ly</span>)) <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>last_pos</span> {
-                (<span class='ident'>lx</span><span class='op'>+</span><span class='number'>1</span>, <span class='ident'>ly</span>) <span class='op'>==</span> (<span class='ident'>cx</span>, <span class='ident'>cy</span>)
-            } <span class='kw'>else</span> { <span class='boolval'>false</span> }
-        } <span class='kw'>else</span> { <span class='boolval'>false</span> }
+                (<span class='ident'>lx</span> <span class='op'>+</span> <span class='number'>1</span>, <span class='ident'>ly</span>) <span class='op'>==</span> (<span class='ident'>cx</span>, <span class='ident'>cy</span>)
+            } <span class='kw'>else</span> {
+                <span class='boolval'>false</span>
+            }
+        } <span class='kw'>else</span> {
+            <span class='boolval'>false</span>
+        }
     }
 
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>pos</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Pos</span><span class='op'>&gt;</span> {

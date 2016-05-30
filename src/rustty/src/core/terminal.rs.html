@@ -730,32 +730,13 @@
 <span id="686">686</span>
 <span id="687">687</span>
 <span id="688">688</span>
-<span id="689">689</span>
-<span id="690">690</span>
-<span id="691">691</span>
-<span id="692">692</span>
-<span id="693">693</span>
-<span id="694">694</span>
-<span id="695">695</span>
-<span id="696">696</span>
-<span id="697">697</span>
-<span id="698">698</span>
-<span id="699">699</span>
-<span id="700">700</span>
-<span id="701">701</span>
-<span id="702">702</span>
 </pre><pre class='rust '>
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ops</span>::{
-    <span class='ident'>Index</span>,
-    <span class='ident'>IndexMut</span>,
-    <span class='ident'>Deref</span>,
-    <span class='ident'>DerefMut</span>,
-};
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ops</span>::{<span class='ident'>Index</span>, <span class='ident'>IndexMut</span>, <span class='ident'>Deref</span>, <span class='ident'>DerefMut</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::<span class='ident'>prelude</span>::<span class='op'>*</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::{<span class='ident'>Error</span>, <span class='ident'>ErrorKind</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>fs</span>::<span class='ident'>OpenOptions</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>fs</span>::<span class='ident'>File</span>;
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>io</span>::{<span class='ident'>AsRawFd</span>, <span class='ident'>RawFd</span>};
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>io</span>::<span class='ident'>AsRawFd</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>sync</span>::<span class='ident'>atomic</span>::{<span class='ident'>AtomicBool</span>, <span class='ident'>Ordering</span>, <span class='ident'>ATOMIC_BOOL_INIT</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>collections</span>::<span class='ident'>VecDeque</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>thread</span>;
@@ -763,9 +744,9 @@
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>signal</span>;
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>signal</span>::{<span class='ident'>SigHandler</span>, <span class='ident'>SigAction</span>, <span class='ident'>SaFlag</span>, <span class='ident'>SigSet</span>};
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>signal</span>::<span class='ident'>SIGWINCH</span>;
-<span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>epoll</span>::{<span class='ident'>epoll_create</span>, <span class='ident'>epoll_ctl</span>, <span class='ident'>epoll_wait</span>};
-<span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>epoll</span>::{<span class='ident'>EpollOp</span>, <span class='ident'>EpollEvent</span>, <span class='ident'>EpollEventKind</span>};
-<span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>epoll</span>;
+<span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>select</span>;
+<span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>select</span>::<span class='ident'>FdSet</span>;
+<span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>time</span>::<span class='ident'>TimeVal</span>;
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>errno</span>::<span class='ident'>Errno</span>;
 
 <span class='kw'>use</span> <span class='ident'>gag</span>::<span class='ident'>BufferRedirect</span>;
@@ -773,10 +754,7 @@
 <span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>cellbuffer</span>::{<span class='ident'>CellAccessor</span>, <span class='ident'>CellBuffer</span>, <span class='ident'>Cell</span>, <span class='ident'>Color</span>, <span class='ident'>Attr</span>};
 <span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>input</span>::<span class='ident'>Event</span>;
 <span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>position</span>::{<span class='ident'>Cursor</span>, <span class='ident'>Pos</span>, <span class='ident'>Size</span>, <span class='ident'>HasSize</span>};
-<span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>driver</span>::{
-    <span class='ident'>DevFn</span>,
-    <span class='ident'>Driver</span>,
-};
+<span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>driver</span>::{<span class='ident'>DevFn</span>, <span class='ident'>Driver</span>};
 <span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>termctl</span>::<span class='ident'>TermCtl</span>;
 
 <span class='doccomment'>/// Set to true by the sigwinch handler. Reset to false when buffers are resized.</span>
@@ -818,7 +796,6 @@
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Terminal</span> {
     <span class='ident'>termctl</span>: <span class='ident'>TermCtl</span>,
     <span class='ident'>tty</span>: <span class='ident'>File</span>, <span class='comment'>// Underlying terminal file.</span>
-    <span class='ident'>epfd</span>: <span class='ident'>RawFd</span>, <span class='comment'>// Epoll file descriptor.</span>
     <span class='ident'>cols</span>: <span class='ident'>usize</span>, <span class='comment'>// Number of columns in the terminal window.</span>
     <span class='ident'>rows</span>: <span class='ident'>usize</span>, <span class='comment'>// Number of rows in the terminal window.</span>
     <span class='ident'>driver</span>: <span class='ident'>Driver</span>,
@@ -828,7 +805,7 @@
     <span class='ident'>eventbuffer</span>: <span class='ident'>EventBuffer</span>, <span class='comment'>// Event buffer.</span>
     <span class='ident'>laststyle</span>: <span class='ident'>Cell</span>, <span class='comment'>// Last cell to have its style (fg, bg, attrs) written to the output buffer.</span>
     <span class='ident'>cursor</span>: <span class='ident'>Cursor</span>, <span class='comment'>// Current cursor position.</span>
-    <span class='ident'>stderr_handle</span>: <span class='ident'>BufferRedirect</span>
+    <span class='ident'>stderr_handle</span>: <span class='ident'>BufferRedirect</span>,
 }
 
 <span class='kw'>impl</span> <span class='ident'>Terminal</span> {
@@ -876,7 +853,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>with_cell</span>(<span class='ident'>cell</span>: <span class='ident'>Cell</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Terminal</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
         <span class='comment'>// Make sure there is only ever one instance.</span>
         <span class='kw'>if</span> <span class='ident'>RUSTTY_STATUS</span>.<span class='ident'>compare_and_swap</span>(<span class='boolval'>false</span>, <span class='boolval'>true</span>, <span class='ident'>Ordering</span>::<span class='ident'>SeqCst</span>) {
-            <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Error</span>::<span class='ident'>new</span>(<span class='ident'>ErrorKind</span>::<span class='ident'>AlreadyExists</span>, <span class='string'>&quot;terminal already initialized&quot;</span>))
+            <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Error</span>::<span class='ident'>new</span>(<span class='ident'>ErrorKind</span>::<span class='ident'>AlreadyExists</span>, <span class='string'>&quot;terminal already initialized&quot;</span>));
         }
 
         <span class='kw'>let</span> <span class='ident'>driver</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>Driver</span>::<span class='ident'>new</span>());
@@ -893,17 +870,7 @@
         <span class='comment'>// changed; it does this by setting SIGWINCH_STATUS to &#39;true&#39;.</span>
         <span class='kw'>let</span> <span class='ident'>handler</span> <span class='op'>=</span> <span class='ident'>SigHandler</span>::<span class='ident'>Handler</span>(<span class='ident'>sigwinch_handler</span>);
         <span class='kw'>let</span> <span class='ident'>sa_winch</span> <span class='op'>=</span> <span class='ident'>SigAction</span>::<span class='ident'>new</span>(<span class='ident'>handler</span>, <span class='ident'>SaFlag</span>::<span class='ident'>empty</span>(), <span class='ident'>SigSet</span>::<span class='ident'>empty</span>());
-        <span class='macro'>try</span><span class='macro'>!</span>(<span class='kw'>unsafe</span> {
-            <span class='ident'>signal</span>::<span class='ident'>sigaction</span>(<span class='ident'>SIGWINCH</span>, <span class='kw-2'>&amp;</span><span class='ident'>sa_winch</span>)
-        });
-
-        <span class='kw'>let</span> <span class='ident'>epfd</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>epoll_create</span>());
-        <span class='kw'>let</span> <span class='ident'>epev</span> <span class='op'>=</span> <span class='ident'>EpollEvent</span> {
-            <span class='ident'>events</span>: <span class='ident'>epoll</span>::<span class='ident'>EPOLLIN</span>,
-            <span class='ident'>data</span>: <span class='number'>0</span>,
-        };
-        <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>epoll_ctl</span>(<span class='ident'>epfd</span>, <span class='ident'>EpollOp</span>::<span class='ident'>EpollCtlAdd</span>, <span class='ident'>rawtty</span>, <span class='kw-2'>&amp;</span><span class='ident'>epev</span>));
-
+        <span class='macro'>try</span><span class='macro'>!</span>(<span class='kw'>unsafe</span> { <span class='ident'>signal</span>::<span class='ident'>sigaction</span>(<span class='ident'>SIGWINCH</span>, <span class='kw-2'>&amp;</span><span class='ident'>sa_winch</span>) });
 
         <span class='kw'>let</span> <span class='ident'>termctl</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>TermCtl</span>::<span class='ident'>new</span>(<span class='ident'>rawtty</span>));
         <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>termctl</span>.<span class='ident'>set</span>());
@@ -912,7 +879,6 @@
         <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>terminal</span> <span class='op'>=</span> <span class='ident'>Terminal</span> {
             <span class='ident'>termctl</span>: <span class='ident'>termctl</span>,
             <span class='ident'>tty</span>: <span class='ident'>tty</span>,
-            <span class='ident'>epfd</span>: <span class='ident'>epfd</span>,
             <span class='ident'>cols</span>: <span class='number'>0</span>,
             <span class='ident'>rows</span>: <span class='number'>0</span>,
             <span class='ident'>driver</span>: <span class='ident'>driver</span>,
@@ -922,7 +888,7 @@
             <span class='ident'>eventbuffer</span>: <span class='ident'>EventBuffer</span>::<span class='ident'>with_capacity</span>(<span class='number'>128</span>),
             <span class='ident'>laststyle</span>: <span class='ident'>cell</span>,
             <span class='ident'>cursor</span>: <span class='ident'>Cursor</span>::<span class='ident'>new</span>(),
-            <span class='ident'>stderr_handle</span>: <span class='ident'>BufferRedirect</span>::<span class='ident'>stderr</span>().<span class='ident'>unwrap</span>()
+            <span class='ident'>stderr_handle</span>: <span class='ident'>BufferRedirect</span>::<span class='ident'>stderr</span>().<span class='ident'>unwrap</span>(),
         };
 
         <span class='comment'>// Switch to alternate screen buffer. Writes the control code to the output buffer.</span>
@@ -1223,7 +1189,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// let evt = term.get_event(1).unwrap();</span>
     <span class='doccomment'>/// ```</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_event</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>timeout_ms</span>: <span class='ident'>isize</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Event</span><span class='op'>&gt;</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_event</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>timeout_ms</span>: <span class='ident'>i64</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Event</span><span class='op'>&gt;</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
         <span class='comment'>// Check if the event buffer is empty.</span>
         <span class='kw'>if</span> <span class='self'>self</span>.<span class='ident'>eventbuffer</span>.<span class='ident'>is_empty</span>() {
             <span class='comment'>// Event buffer is empty, lets poll the terminal for events.</span>
@@ -1266,14 +1232,17 @@
     }
 
     <span class='kw'>fn</span> <span class='ident'>send_style</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>cell</span>: <span class='ident'>Cell</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(), <span class='ident'>Error</span><span class='op'>&gt;</span> {
-        <span class='kw'>if</span> <span class='ident'>cell</span>.<span class='ident'>fg</span>() <span class='op'>!=</span> <span class='self'>self</span>.<span class='ident'>laststyle</span>.<span class='ident'>fg</span>() <span class='op'>||</span> <span class='ident'>cell</span>.<span class='ident'>bg</span>() <span class='op'>!=</span> <span class='self'>self</span>.<span class='ident'>laststyle</span>.<span class='ident'>bg</span>() <span class='op'>||</span> <span class='ident'>cell</span>.<span class='ident'>attrs</span>() <span class='op'>!=</span> <span class='self'>self</span>.<span class='ident'>laststyle</span>.<span class='ident'>attrs</span>() {
+        <span class='kw'>if</span> <span class='ident'>cell</span>.<span class='ident'>fg</span>() <span class='op'>!=</span> <span class='self'>self</span>.<span class='ident'>laststyle</span>.<span class='ident'>fg</span>() <span class='op'>||</span> <span class='ident'>cell</span>.<span class='ident'>bg</span>() <span class='op'>!=</span> <span class='self'>self</span>.<span class='ident'>laststyle</span>.<span class='ident'>bg</span>() <span class='op'>||</span>
+           <span class='ident'>cell</span>.<span class='ident'>attrs</span>() <span class='op'>!=</span> <span class='self'>self</span>.<span class='ident'>laststyle</span>.<span class='ident'>attrs</span>() {
             <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>outbuffer</span>.<span class='ident'>write_all</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>driver</span>.<span class='ident'>get</span>(<span class='ident'>DevFn</span>::<span class='ident'>Reset</span>)));
 
             <span class='kw'>match</span> <span class='ident'>cell</span>.<span class='ident'>attrs</span>() {
                 <span class='ident'>Attr</span>::<span class='ident'>Bold</span> <span class='op'>=&gt;</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>outbuffer</span>.<span class='ident'>write_all</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>driver</span>.<span class='ident'>get</span>(<span class='ident'>DevFn</span>::<span class='ident'>Bold</span>))),
-                <span class='ident'>Attr</span>::<span class='ident'>Underline</span> <span class='op'>=&gt;</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>outbuffer</span>.<span class='ident'>write_all</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>driver</span>.<span class='ident'>get</span>(<span class='ident'>DevFn</span>::<span class='ident'>Underline</span>))),
+                <span class='ident'>Attr</span>::<span class='ident'>Underline</span> <span class='op'>=&gt;</span> {
+                    <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>outbuffer</span>.<span class='ident'>write_all</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>driver</span>.<span class='ident'>get</span>(<span class='ident'>DevFn</span>::<span class='ident'>Underline</span>)))
+                }
                 <span class='ident'>Attr</span>::<span class='ident'>Reverse</span> <span class='op'>=&gt;</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>outbuffer</span>.<span class='ident'>write_all</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>driver</span>.<span class='ident'>get</span>(<span class='ident'>DevFn</span>::<span class='ident'>Reverse</span>))),
-                _ <span class='op'>=&gt;</span> {},
+                _ <span class='op'>=&gt;</span> {}
             }
 
             <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>write_sgr</span>(<span class='ident'>cell</span>.<span class='ident'>fg</span>(), <span class='ident'>cell</span>.<span class='ident'>bg</span>()));
@@ -1284,16 +1253,16 @@
 
     <span class='kw'>fn</span> <span class='ident'>write_sgr</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>fgcol</span>: <span class='ident'>Color</span>, <span class='ident'>bgcol</span>: <span class='ident'>Color</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(), <span class='ident'>Error</span><span class='op'>&gt;</span> {
         <span class='kw'>match</span> <span class='ident'>fgcol</span> {
-            <span class='ident'>Color</span>::<span class='ident'>Default</span> <span class='op'>=&gt;</span> {},
+            <span class='ident'>Color</span>::<span class='ident'>Default</span> <span class='op'>=&gt;</span> {}
             <span class='ident'>fgc</span> <span class='kw-2'>@</span> _ <span class='op'>=&gt;</span> {
                 <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>outbuffer</span>.<span class='ident'>write_all</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>driver</span>.<span class='ident'>get</span>(<span class='ident'>DevFn</span>::<span class='ident'>SetFg</span>(<span class='ident'>fgc</span>.<span class='ident'>as_byte</span>()))));
-            },
+            }
         }
         <span class='kw'>match</span> <span class='ident'>bgcol</span> {
-            <span class='ident'>Color</span>::<span class='ident'>Default</span> <span class='op'>=&gt;</span> {},
+            <span class='ident'>Color</span>::<span class='ident'>Default</span> <span class='op'>=&gt;</span> {}
             <span class='ident'>bgc</span> <span class='kw-2'>@</span> _ <span class='op'>=&gt;</span> {
                 <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>outbuffer</span>.<span class='ident'>write_all</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>driver</span>.<span class='ident'>get</span>(<span class='ident'>DevFn</span>::<span class='ident'>SetBg</span>(<span class='ident'>bgc</span>.<span class='ident'>as_byte</span>()))));
-            },
+            }
         }
         <span class='prelude-val'>Ok</span>(())
     }
@@ -1319,32 +1288,36 @@
     <span class='doccomment'>/// the specified number of milliseconds for input to become available.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Returns the number of events read into the buffer.</span>
-    <span class='kw'>fn</span> <span class='ident'>read_events</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>timeout_ms</span>: <span class='ident'>isize</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>usize</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
-        <span class='comment'>// Event vector to pass to kernel.</span>
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>events</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>EpollEvent</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>Vec</span>::<span class='ident'>new</span>();
-        <span class='ident'>events</span>.<span class='ident'>push</span>(<span class='ident'>EpollEvent</span> { <span class='ident'>events</span>: <span class='ident'>EpollEventKind</span>::<span class='ident'>empty</span>(), <span class='ident'>data</span>: <span class='number'>0</span> });
+    <span class='kw'>fn</span> <span class='ident'>read_events</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>timeout_ms</span>: <span class='ident'>i64</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>usize</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
+        <span class='kw'>let</span> <span class='ident'>nevts</span>;
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>timeout</span> <span class='op'>=</span> <span class='ident'>TimeVal</span>::<span class='ident'>milliseconds</span>(<span class='ident'>timeout_ms</span>);
+        <span class='kw'>let</span> <span class='ident'>rawfd</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>tty</span>.<span class='ident'>as_raw_fd</span>();
+        <span class='kw'>let</span> <span class='ident'>nfds</span> <span class='op'>=</span> <span class='ident'>rawfd</span> <span class='op'>+</span> <span class='number'>1</span>;
 
-        <span class='kw'>let</span> <span class='ident'>nepolls</span>: <span class='ident'>usize</span>;
-        <span class='comment'>// Because the sigwinch handler will interrupt epoll, if epoll returns EINTR we loop</span>
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>fdset_read</span> <span class='op'>=</span> <span class='ident'>FdSet</span>::<span class='ident'>new</span>();
+        <span class='ident'>fdset_read</span>.<span class='ident'>insert</span>(<span class='ident'>rawfd</span>);
+
+        <span class='comment'>// Because the sigwinch handler will interrupt select, if select returns EINTR we loop</span>
         <span class='comment'>// and try again. All other errors will return normally.</span>
         <span class='kw'>loop</span> {
-            <span class='ident'>nepolls</span> <span class='op'>=</span> <span class='kw'>match</span> <span class='ident'>epoll_wait</span>(<span class='self'>self</span>.<span class='ident'>epfd</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>events</span>, <span class='ident'>timeout_ms</span>) {
-                <span class='prelude-val'>Ok</span>(<span class='ident'>n</span>) <span class='op'>=&gt;</span> <span class='ident'>n</span>,
-                <span class='prelude-val'>Err</span>(<span class='ident'>e</span>) <span class='kw'>if</span> <span class='ident'>e</span>.<span class='ident'>errno</span>() <span class='op'>==</span> <span class='ident'>Errno</span>::<span class='ident'>EINTR</span> <span class='op'>=&gt;</span> {
-                    <span class='comment'>// Errno is EINTR, loop and try again.</span>
-                    <span class='kw'>continue</span>;
-                },
-                <span class='prelude-val'>Err</span>(<span class='ident'>e</span>) <span class='op'>=&gt;</span> {
-                    <span class='comment'>// Error that isn&#39;t EINTR, return up the stack.</span>
-                    <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Error</span>::<span class='ident'>from</span>(<span class='ident'>e</span>));
-                },
-            };
-            <span class='comment'>// We will only reach this point if epoll_wait succeeds, therefore we have assigned</span>
+            <span class='ident'>nevts</span> <span class='op'>=</span>
+                <span class='kw'>match</span> <span class='ident'>select</span>::<span class='ident'>select</span>(<span class='ident'>nfds</span>, <span class='prelude-val'>Some</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>fdset_read</span>), <span class='prelude-val'>None</span>, <span class='prelude-val'>None</span>, <span class='prelude-val'>Some</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>timeout</span>)) {
+                    <span class='prelude-val'>Ok</span>(<span class='ident'>n</span>) <span class='op'>=&gt;</span> <span class='ident'>n</span>,
+                    <span class='prelude-val'>Err</span>(<span class='ident'>e</span>) <span class='kw'>if</span> <span class='ident'>e</span>.<span class='ident'>errno</span>() <span class='op'>==</span> <span class='ident'>Errno</span>::<span class='ident'>EINTR</span> <span class='op'>=&gt;</span> {
+                        <span class='comment'>// Errno is EINTR, loop and try again.</span>
+                        <span class='kw'>continue</span>;
+                    }
+                    <span class='prelude-val'>Err</span>(<span class='ident'>e</span>) <span class='op'>=&gt;</span> {
+                        <span class='comment'>// Error that isn&#39;t EINTR, return up the stack.</span>
+                        <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Error</span>::<span class='ident'>from</span>(<span class='ident'>e</span>));
+                    }
+                };
+            <span class='comment'>// We will only reach this point if select succeeds, therefore we have assigned</span>
             <span class='comment'>// to nevents and can break.</span>
             <span class='kw'>break</span>;
         }
 
-        <span class='kw'>if</span> <span class='ident'>nepolls</span> <span class='op'>==</span> <span class='number'>0</span> {
+        <span class='kw'>if</span> <span class='ident'>nevts</span> <span class='op'>==</span> <span class='number'>0</span> {
             <span class='comment'>// No input available. Return None.</span>
             <span class='prelude-val'>Ok</span>(<span class='number'>0</span>)
         } <span class='kw'>else</span> {
@@ -1443,10 +1416,9 @@
 }
 
 <span class='comment'>// Sigwinch handler to notify when window has resized.</span>
-<span class='kw'>extern</span> <span class='kw'>fn</span> <span class='ident'>sigwinch_handler</span>(_: <span class='ident'>i32</span>) {
+<span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> <span class='kw'>fn</span> <span class='ident'>sigwinch_handler</span>(_: <span class='ident'>i32</span>) {
     <span class='ident'>SIGWINCH_STATUS</span>.<span class='ident'>store</span>(<span class='boolval'>true</span>, <span class='ident'>Ordering</span>::<span class='ident'>SeqCst</span>);
 }
-
 </pre>
 </section>
     <section id='search' class="content hidden"></section>

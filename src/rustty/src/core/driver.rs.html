@@ -221,27 +221,6 @@
 <span id="177">177</span>
 <span id="178">178</span>
 <span id="179">179</span>
-<span id="180">180</span>
-<span id="181">181</span>
-<span id="182">182</span>
-<span id="183">183</span>
-<span id="184">184</span>
-<span id="185">185</span>
-<span id="186">186</span>
-<span id="187">187</span>
-<span id="188">188</span>
-<span id="189">189</span>
-<span id="190">190</span>
-<span id="191">191</span>
-<span id="192">192</span>
-<span id="193">193</span>
-<span id="194">194</span>
-<span id="195">195</span>
-<span id="196">196</span>
-<span id="197">197</span>
-<span id="198">198</span>
-<span id="199">199</span>
-<span id="200">200</span>
 </pre><pre class='rust '>
 <span class='comment'>// Temporary fix before certain constants are used.</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>dead_code</span>)]</span>
@@ -274,24 +253,9 @@
 <span class='kw'>const</span> <span class='ident'>KEY_RIGHT</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> [<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span>] <span class='op'>=</span> <span class='kw-2'>&amp;</span>[<span class='string'>&quot;key_right&quot;</span>, <span class='string'>&quot;kcuf1&quot;</span>];
 
 <span class='comment'>// Array of terminal keys.</span>
-<span class='kw'>const</span> <span class='ident'>KEYS</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> [<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> [<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span>]] <span class='op'>=</span> <span class='kw-2'>&amp;</span>[
-    <span class='ident'>KEY_F1</span>,
-    <span class='ident'>KEY_F2</span>,
-    <span class='ident'>KEY_F3</span>,
-    <span class='ident'>KEY_F4</span>,
-    <span class='ident'>KEY_F5</span>,
-    <span class='ident'>KEY_F6</span>,
-    <span class='ident'>KEY_F7</span>,
-    <span class='ident'>KEY_F8</span>,
-    <span class='ident'>KEY_F9</span>,
-    <span class='ident'>KEY_F10</span>,
-    <span class='ident'>KEY_F11</span>,
-    <span class='ident'>KEY_F12</span>,
-    <span class='ident'>KEY_UP</span>,
-    <span class='ident'>KEY_DOWN</span>,
-    <span class='ident'>KEY_LEFT</span>,
-    <span class='ident'>KEY_RIGHT</span>,
-];
+<span class='kw'>const</span> <span class='ident'>KEYS</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> [<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> [<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span>]] <span class='op'>=</span> <span class='kw-2'>&amp;</span>[<span class='ident'>KEY_F1</span>, <span class='ident'>KEY_F2</span>, <span class='ident'>KEY_F3</span>, <span class='ident'>KEY_F4</span>, <span class='ident'>KEY_F5</span>, <span class='ident'>KEY_F6</span>,
+                                                   <span class='ident'>KEY_F7</span>, <span class='ident'>KEY_F8</span>, <span class='ident'>KEY_F9</span>, <span class='ident'>KEY_F10</span>, <span class='ident'>KEY_F11</span>,
+                                                   <span class='ident'>KEY_F12</span>, <span class='ident'>KEY_UP</span>, <span class='ident'>KEY_DOWN</span>, <span class='ident'>KEY_LEFT</span>, <span class='ident'>KEY_RIGHT</span>];
 
 <span class='comment'>// String constants correspond to terminfo capnames and are used inside the module for convenience.</span>
 <span class='kw'>const</span> <span class='ident'>ENTER_CA</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;smcup&quot;</span>;
@@ -315,20 +279,18 @@
 <span class='comment'>// to fail.</span>
 <span class='comment'>//</span>
 <span class='comment'>// TODO: Optional functionality testing.</span>
-<span class='kw'>const</span> <span class='ident'>CAPABILITIES</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> [<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span>] <span class='op'>=</span> <span class='kw-2'>&amp;</span>[
-    <span class='ident'>ENTER_CA</span>,
-    <span class='ident'>EXIT_CA</span>,
-    <span class='ident'>SHOW_CURSOR</span>,
-    <span class='ident'>HIDE_CURSOR</span>,
-    <span class='ident'>SET_CURSOR</span>,
-    <span class='ident'>CLEAR</span>,
-    <span class='ident'>RESET</span>,
-    <span class='ident'>UNDERLINE</span>,
-    <span class='ident'>BOLD</span>,
-    <span class='ident'>REVERSE</span>,
-    <span class='ident'>SETFG</span>,
-    <span class='ident'>SETBG</span>,
-];
+<span class='kw'>const</span> <span class='ident'>CAPABILITIES</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> [<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span>] <span class='op'>=</span> <span class='kw-2'>&amp;</span>[<span class='ident'>ENTER_CA</span>,
+                                                <span class='ident'>EXIT_CA</span>,
+                                                <span class='ident'>SHOW_CURSOR</span>,
+                                                <span class='ident'>HIDE_CURSOR</span>,
+                                                <span class='ident'>SET_CURSOR</span>,
+                                                <span class='ident'>CLEAR</span>,
+                                                <span class='ident'>RESET</span>,
+                                                <span class='ident'>UNDERLINE</span>,
+                                                <span class='ident'>BOLD</span>,
+                                                <span class='ident'>REVERSE</span>,
+                                                <span class='ident'>SETFG</span>,
+                                                <span class='ident'>SETBG</span>];
 
 <span class='comment'>// Driver capabilities are an enum instead of string constants (there are string constants private</span>
 <span class='comment'>// to the module however, those are only used for naming convenience and disambiguation)</span>
@@ -407,9 +369,7 @@
     <span class='comment'>// If successful, the terminfo database is guaranteed to contain all capabilities we support.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>new</span>() <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Driver</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
         <span class='kw'>let</span> <span class='ident'>tinfo</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>get_tinfo</span>());
-        <span class='prelude-val'>Ok</span>(<span class='ident'>Driver</span> {
-            <span class='ident'>tinfo</span>: <span class='ident'>tinfo</span>,
-        })
+        <span class='prelude-val'>Ok</span>(<span class='ident'>Driver</span> { <span class='ident'>tinfo</span>: <span class='ident'>tinfo</span> })
     }
 
     <span class='comment'>// Returns the device specific escape sequence for the given `DevFn`.</span>
@@ -426,23 +386,21 @@
         <span class='kw'>let</span> <span class='ident'>cap</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>tinfo</span>.<span class='ident'>strings</span>.<span class='ident'>get</span>(<span class='ident'>capname</span>).<span class='ident'>unwrap</span>();
 
         <span class='kw'>match</span> <span class='ident'>dfn</span> {
-            <span class='ident'>DevFn</span>::<span class='ident'>SetFg</span>(<span class='ident'>attr</span>) <span class='op'>|</span> <span class='ident'>DevFn</span>::<span class='ident'>SetBg</span>(<span class='ident'>attr</span>) <span class='op'>=&gt;</span> {
+            <span class='ident'>DevFn</span>::<span class='ident'>SetFg</span>(<span class='ident'>attr</span>) <span class='op'>|</span>
+            <span class='ident'>DevFn</span>::<span class='ident'>SetBg</span>(<span class='ident'>attr</span>) <span class='op'>=&gt;</span> {
                 <span class='kw'>let</span> <span class='ident'>params</span> <span class='op'>=</span> <span class='kw-2'>&amp;</span>[<span class='ident'>Param</span>::<span class='ident'>Number</span>(<span class='ident'>attr</span> <span class='kw'>as</span> <span class='ident'>i32</span>)];
                 <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>vars</span> <span class='op'>=</span> <span class='ident'>Variables</span>::<span class='ident'>new</span>();
                 <span class='ident'>parm</span>::<span class='ident'>expand</span>(<span class='ident'>cap</span>, <span class='ident'>params</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>vars</span>).<span class='ident'>unwrap</span>()
-            },
+            }
             <span class='ident'>DevFn</span>::<span class='ident'>SetCursor</span>(<span class='ident'>x</span>, <span class='ident'>y</span>) <span class='op'>=&gt;</span> {
                 <span class='kw'>let</span> <span class='ident'>params</span> <span class='op'>=</span> <span class='kw-2'>&amp;</span>[<span class='ident'>Param</span>::<span class='ident'>Number</span>(<span class='ident'>y</span> <span class='kw'>as</span> <span class='ident'>i32</span>), <span class='ident'>Param</span>::<span class='ident'>Number</span>(<span class='ident'>x</span> <span class='kw'>as</span> <span class='ident'>i32</span>)];
                 <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>vars</span> <span class='op'>=</span> <span class='ident'>Variables</span>::<span class='ident'>new</span>();
                 <span class='ident'>parm</span>::<span class='ident'>expand</span>(<span class='ident'>cap</span>, <span class='ident'>params</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>vars</span>).<span class='ident'>unwrap</span>()
-            },
-            _ <span class='op'>=&gt;</span> {
-                <span class='ident'>cap</span>.<span class='ident'>clone</span>()
-            },
+            }
+            _ <span class='op'>=&gt;</span> <span class='ident'>cap</span>.<span class='ident'>clone</span>(),
         }
     }
 }
-
 </pre>
 </section>
     <section id='search' class="content hidden"></section>

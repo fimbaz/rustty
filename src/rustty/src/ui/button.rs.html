@@ -74,7 +74,6 @@
 <span id="30">30</span>
 <span id="31">31</span>
 <span id="32">32</span>
-<span id="33">33</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>cellbuffer</span>::{<span class='ident'>Attr</span>, <span class='ident'>CellAccessor</span>};
 <span class='kw'>use</span> <span class='ident'>ui</span>::<span class='ident'>widget</span>::<span class='ident'>Widget</span>;
@@ -84,7 +83,7 @@
     <span class='kw'>let</span> <span class='ident'>lower_accel</span> <span class='op'>=</span> <span class='ident'>accel</span>.<span class='ident'>to_lowercase</span>().<span class='ident'>next</span>().<span class='ident'>unwrap_or</span>(<span class='ident'>accel</span>);
     <span class='kw'>for</span> (<span class='ident'>i</span>, <span class='ident'>c</span>) <span class='kw'>in</span> <span class='ident'>s</span>.<span class='ident'>chars</span>().<span class='ident'>enumerate</span>() {
         <span class='kw'>if</span> <span class='ident'>c</span>.<span class='ident'>to_lowercase</span>().<span class='ident'>next</span>().<span class='ident'>unwrap_or</span>(<span class='ident'>c</span>) <span class='op'>==</span> <span class='ident'>lower_accel</span> {
-            <span class='kw'>return</span> <span class='prelude-val'>Some</span>(<span class='ident'>i</span>)
+            <span class='kw'>return</span> <span class='prelude-val'>Some</span>(<span class='ident'>i</span>);
         }
     }
     <span class='prelude-val'>None</span>
@@ -99,16 +98,15 @@
         <span class='prelude-val'>Some</span>(<span class='ident'>c</span>) <span class='op'>=&gt;</span> {
             <span class='kw'>match</span> <span class='ident'>find_accel_char_index</span>(<span class='ident'>text</span>, <span class='ident'>c</span>) {
                 <span class='prelude-val'>Some</span>(<span class='ident'>i</span>) <span class='op'>=&gt;</span> {
-                    <span class='ident'>widget</span>.<span class='ident'>get_mut</span>(<span class='ident'>i</span><span class='op'>+</span><span class='number'>2</span>, <span class='number'>0</span>).<span class='ident'>unwrap</span>().<span class='ident'>set_attrs</span>(<span class='ident'>Attr</span>::<span class='ident'>Bold</span>);
-                },
+                    <span class='ident'>widget</span>.<span class='ident'>get_mut</span>(<span class='ident'>i</span> <span class='op'>+</span> <span class='number'>2</span>, <span class='number'>0</span>).<span class='ident'>unwrap</span>().<span class='ident'>set_attrs</span>(<span class='ident'>Attr</span>::<span class='ident'>Bold</span>);
+                }
                 <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> (),
             }
-        },
+        }
         <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> (),
     }
     <span class='ident'>widget</span>
 }
-
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
