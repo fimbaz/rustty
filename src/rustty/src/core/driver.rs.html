@@ -242,18 +242,6 @@
 <span id="198">198</span>
 <span id="199">199</span>
 <span id="200">200</span>
-<span id="201">201</span>
-<span id="202">202</span>
-<span id="203">203</span>
-<span id="204">204</span>
-<span id="205">205</span>
-<span id="206">206</span>
-<span id="207">207</span>
-<span id="208">208</span>
-<span id="209">209</span>
-<span id="210">210</span>
-<span id="211">211</span>
-<span id="212">212</span>
 </pre><pre class='rust '>
 <span class='comment'>// Temporary fix before certain constants are used.</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>dead_code</span>)]</span>
@@ -262,25 +250,7 @@
 
 <span class='kw'>use</span> <span class='ident'>term</span>::<span class='ident'>terminfo</span>::<span class='ident'>TermInfo</span>;
 <span class='kw'>use</span> <span class='ident'>term</span>::<span class='ident'>terminfo</span>::<span class='ident'>parm</span>;
-<span class='kw'>use</span> <span class='ident'>term</span>::<span class='ident'>terminfo</span>::<span class='ident'>parm</span>::{
-    <span class='ident'>Param</span>,
-    <span class='ident'>Variables</span>,
-};
-
-<span class='comment'>// String constants correspond to terminfo capnames and are used inside the module for convenience.</span>
-<span class='kw'>const</span> <span class='ident'>ENTER_CA</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;smcup&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>EXIT_CA</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;rmcup&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>SHOW_CURSOR</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;cnorm&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>HIDE_CURSOR</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;civis&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>SET_CURSOR</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;cup&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>CLEAR</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;clear&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>RESET</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;sgr0&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>UNDERLINE</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;smul&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>BOLD</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;bold&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>BLINK</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;blink&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>REVERSE</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;rev&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>SETFG</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;setaf&quot;</span>;
-<span class='kw'>const</span> <span class='ident'>SETBG</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;setab&quot;</span>;
+<span class='kw'>use</span> <span class='ident'>term</span>::<span class='ident'>terminfo</span>::<span class='ident'>parm</span>::{<span class='ident'>Param</span>, <span class='ident'>Variables</span>};
 
 <span class='comment'>// Terminfo keys. These are arrays because the terminfo database from the `term` crate sometimes</span>
 <span class='comment'>// uses the variable name and othertimes the capname.</span>
@@ -323,6 +293,21 @@
     <span class='ident'>KEY_RIGHT</span>,
 ];
 
+<span class='comment'>// String constants correspond to terminfo capnames and are used inside the module for convenience.</span>
+<span class='kw'>const</span> <span class='ident'>ENTER_CA</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;smcup&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>EXIT_CA</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;rmcup&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>SHOW_CURSOR</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;cnorm&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>HIDE_CURSOR</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;civis&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>SET_CURSOR</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;cup&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>CLEAR</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;clear&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>RESET</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;sgr0&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>UNDERLINE</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;smul&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>BOLD</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;bold&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>BLINK</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;blink&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>REVERSE</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;rev&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>SETFG</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;setaf&quot;</span>;
+<span class='kw'>const</span> <span class='ident'>SETBG</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;setab&quot;</span>;
+
 <span class='comment'>// Array of terminal capabilities. Used as an iterator to test for functionality.</span>
 <span class='comment'>//</span>
 <span class='comment'>// At the moment all functionality is required, however in the future we should implement optional</span>
@@ -350,7 +335,6 @@
 <span class='comment'>// to take advantage of compile-time type-checking instead of hoping invalid strings aren&#39;t passed.</span>
 <span class='comment'>// This allows us to guarantee that driver accesses will succeed. In addition, using an enum means</span>
 <span class='comment'>// Driver doesn&#39;t need hard-coded methods for each capability we want to use.</span>
-<span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>dead_code</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>DevFn</span> {
     <span class='ident'>EnterCa</span>,
     <span class='ident'>ExitCa</span>,
@@ -388,22 +372,7 @@
 }
 
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Driver</span> {
-    <span class='ident'>tinfo</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>TermInfo</span>,
-}
-
-<span class='comment'>// We will never need to mutate the terminfo database, and it is only used internally as a lookup</span>
-<span class='comment'>// table for the driver. `lazy_static` seems to be the best approach at the moment.</span>
-<span class='macro'>lazy_static</span><span class='macro'>!</span> {
-    <span class='kw'>static</span> <span class='kw-2'>ref</span> <span class='ident'>TINFO</span>: <span class='ident'>TermInfo</span> <span class='op'>=</span> {
-        <span class='ident'>TermInfo</span>::<span class='ident'>from_env</span>().<span class='ident'>unwrap_or</span>({
-            <span class='ident'>TermInfo</span> {
-                <span class='ident'>names</span>: <span class='ident'>Default</span>::<span class='ident'>default</span>(),
-                <span class='ident'>bools</span>: <span class='ident'>Default</span>::<span class='ident'>default</span>(),
-                <span class='ident'>numbers</span>: <span class='ident'>Default</span>::<span class='ident'>default</span>(),
-                <span class='ident'>strings</span>: <span class='ident'>Default</span>::<span class='ident'>default</span>(),
-            }
-        })
-    };
+    <span class='ident'>tinfo</span>: <span class='ident'>TermInfo</span>,
 }
 
 <span class='comment'>// Validates and returns a reference to the terminfo database.</span>
@@ -413,8 +382,15 @@
 <span class='comment'>//</span>
 <span class='comment'>// If this function returns Err(..), the terminfo database did not contain all the required</span>
 <span class='comment'>// functionality; the error returned will provide more specific detail.</span>
-<span class='kw'>fn</span> <span class='ident'>get_tinfo</span>() <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>TermInfo</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
-    <span class='kw'>let</span> <span class='ident'>tinfo</span> <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='op'>*</span><span class='ident'>TINFO</span>;
+<span class='kw'>fn</span> <span class='ident'>get_tinfo</span>() <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>TermInfo</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
+    <span class='kw'>let</span> <span class='ident'>tinfo</span> <span class='op'>=</span> <span class='ident'>TermInfo</span>::<span class='ident'>from_env</span>().<span class='ident'>unwrap_or</span>({
+        <span class='ident'>TermInfo</span> {
+            <span class='ident'>names</span>: <span class='ident'>Default</span>::<span class='ident'>default</span>(),
+            <span class='ident'>bools</span>: <span class='ident'>Default</span>::<span class='ident'>default</span>(),
+            <span class='ident'>numbers</span>: <span class='ident'>Default</span>::<span class='ident'>default</span>(),
+            <span class='ident'>strings</span>: <span class='ident'>Default</span>::<span class='ident'>default</span>(),
+        }
+    });
 
     <span class='kw'>for</span> <span class='ident'>capname</span> <span class='kw'>in</span> <span class='ident'>CAPABILITIES</span> {
         <span class='kw'>if</span> <span class='op'>!</span><span class='ident'>tinfo</span>.<span class='ident'>strings</span>.<span class='ident'>contains_key</span>(<span class='op'>*</span><span class='ident'>capname</span>) {
