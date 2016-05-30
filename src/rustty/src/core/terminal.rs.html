@@ -743,6 +743,7 @@
 <span id="699">699</span>
 <span id="700">700</span>
 <span id="701">701</span>
+<span id="702">702</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ops</span>::{
     <span class='ident'>Index</span>,
@@ -751,6 +752,7 @@
     <span class='ident'>DerefMut</span>,
 };
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::<span class='ident'>prelude</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::{<span class='ident'>Error</span>, <span class='ident'>ErrorKind</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>fs</span>::<span class='ident'>OpenOptions</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>fs</span>::<span class='ident'>File</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>io</span>::{<span class='ident'>AsRawFd</span>, <span class='ident'>RawFd</span>};
@@ -766,6 +768,8 @@
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>sys</span>::<span class='ident'>epoll</span>;
 <span class='kw'>use</span> <span class='ident'>nix</span>::<span class='ident'>errno</span>::<span class='ident'>Errno</span>;
 
+<span class='kw'>use</span> <span class='ident'>gag</span>::<span class='ident'>BufferRedirect</span>;
+
 <span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>cellbuffer</span>::{<span class='ident'>CellAccessor</span>, <span class='ident'>CellBuffer</span>, <span class='ident'>Cell</span>, <span class='ident'>Color</span>, <span class='ident'>Attr</span>};
 <span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>input</span>::<span class='ident'>Event</span>;
 <span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>position</span>::{<span class='ident'>Cursor</span>, <span class='ident'>Pos</span>, <span class='ident'>Size</span>, <span class='ident'>HasSize</span>};
@@ -774,8 +778,6 @@
     <span class='ident'>Driver</span>,
 };
 <span class='kw'>use</span> <span class='ident'>core</span>::<span class='ident'>termctl</span>::<span class='ident'>TermCtl</span>;
-<span class='kw'>use</span> <span class='ident'>util</span>::<span class='ident'>errors</span>::<span class='ident'>Error</span>;
-<span class='kw'>use</span> <span class='ident'>gag</span>::<span class='ident'>BufferRedirect</span>;
 
 <span class='doccomment'>/// Set to true by the sigwinch handler. Reset to false when buffers are resized.</span>
 <span class='kw'>static</span> <span class='ident'>SIGWINCH_STATUS</span>: <span class='ident'>AtomicBool</span> <span class='op'>=</span> <span class='ident'>ATOMIC_BOOL_INIT</span>;
@@ -874,7 +876,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>with_cell</span>(<span class='ident'>cell</span>: <span class='ident'>Cell</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Terminal</span>, <span class='ident'>Error</span><span class='op'>&gt;</span> {
         <span class='comment'>// Make sure there is only ever one instance.</span>
         <span class='kw'>if</span> <span class='ident'>RUSTTY_STATUS</span>.<span class='ident'>compare_and_swap</span>(<span class='boolval'>false</span>, <span class='boolval'>true</span>, <span class='ident'>Ordering</span>::<span class='ident'>SeqCst</span>) {
-            <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Error</span>::<span class='ident'>new</span>(<span class='string'>&quot;Rustty already initialized&quot;</span>))
+            <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Error</span>::<span class='ident'>new</span>(<span class='ident'>ErrorKind</span>::<span class='ident'>AlreadyExists</span>, <span class='string'>&quot;terminal already initialized&quot;</span>))
         }
 
         <span class='kw'>let</span> <span class='ident'>driver</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>Driver</span>::<span class='ident'>new</span>());

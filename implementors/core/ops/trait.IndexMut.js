@@ -1,5 +1,5 @@
 (function() {var implementors = {};
-implementors['libc'] = [];implementors['rustty'] = ["impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.IndexMut.html' title='core::ops::IndexMut'>IndexMut</a>&lt;<a class='type' href='rustty/type.Pos.html' title='rustty::Pos'>Pos</a>&gt; for <a class='struct' href='rustty/struct.Terminal.html' title='rustty::Terminal'>Terminal</a>",];
+implementors['libc'] = [];implementors['rustty'] = ["impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.IndexMut.html' title='core::ops::IndexMut'>IndexMut</a>&lt;<a class='type' href='rustty/type.Pos.html' title='rustty::Pos'>Pos</a>&gt; for <a class='struct' href='rustty/struct.Terminal.html' title='rustty::Terminal'>Terminal</a>",];implementors['rustty'] = ["impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.IndexMut.html' title='core::ops::IndexMut'>IndexMut</a>&lt;<a class='type' href='rustty/type.Pos.html' title='rustty::Pos'>Pos</a>&gt; for <a class='struct' href='rustty/struct.Terminal.html' title='rustty::Terminal'>Terminal</a>",];
 
             if (window.register_implementors) {
                 window.register_implementors(implementors);
